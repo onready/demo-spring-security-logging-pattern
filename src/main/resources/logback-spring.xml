@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+  <springProperty scope="context" name="APP_LOG_LEVEL" source="logging.level.com.onready.demospringsecuritylogging"/>
+  <springProperty scope="context" name="SPRING_LOG_LEVEL" source="logging.level.org.springframework"/>
+  <springProperty scope="context" name="CONSOLE_LOG_PATTERN" source="logging.pattern.console"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder name="enc" class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+      <layout class="com.onready.demospringsecuritylogging.config.logging.PatternLayoutWithUser">
+        <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+      </layout>
+    </encoder>
+  </appender>
+
+  <logger name="com.onready.demospringsecuritylogging" level="${APP_LOG_LEVEL}" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <logger name="org.springframework.web" level="${SPRING_LOG_LEVEL}" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+
+  <root level="INFO" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
+</configuration>
