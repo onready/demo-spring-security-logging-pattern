@@ -90,6 +90,12 @@ logging.level.org.springframework=WARN
 logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} [%user] [%M:%line] - %msg %n
 ```
 
+The result:
+
+```
+2018-08-16 23:30:05.061 [main] INFO  c.o.d.s.impl.GreetingServiceImpl [John Doe] [sayHello:13] - I'm saying hello!!!!! 
+```
+
 If you want to add more packages, you will need to add a new property and a new logger.
 
 This project is inspired in this [post](https://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/)
